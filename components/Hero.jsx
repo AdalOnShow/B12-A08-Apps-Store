@@ -5,7 +5,7 @@ import hero from "../src/assets/hero.png";
 const Hero = () => {
   return (
     <div className='bg-[#f5f5f5]'>
-      <div className="max-w-10/12 mx-auto pt-20 text-center">
+      <div className="max-w-11/12 mx-auto pt-20 text-center">
         <h2 className="text-col-pry text-7xl font-bold">We Build <br />
           <span className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text">Productive</span> Apps</h2>
 

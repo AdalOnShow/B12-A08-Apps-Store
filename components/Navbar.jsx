@@ -31,7 +31,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="flex-center btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold">
+          <Link to={"https://github.com/adalonshow"} target="_blank" className="flex-center btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold">
             <FaGithub size={20} />
             <span>Contribute</span>
           </Link>
