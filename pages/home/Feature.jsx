@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Feature = () => {
   return (
     <div className='bg-gradient-to-r from-[#632EE3] to-[#9F62F2] py-20'>
