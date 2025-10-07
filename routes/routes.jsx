@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import Root from "./../pages/Root";
 import NotFound from "../pages/errors/NotFound";
-import Home from './../pages/home/Home';
 import Apps from "../pages/Apps";
 import Installation from "../pages/Installation";
+import Home from "../pages/home/home";
 
 
 export const router = createBrowserRouter([
@@ -25,4 +25,5 @@ export const router = createBrowserRouter([
         Component: Installation
       }
     ]
-  }])
+  },
+])

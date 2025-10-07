@@ -1,2 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.text-col-pry {
+  color: #001931;
+}
+
+.active-link {
+  @apply font-semibold underline bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
