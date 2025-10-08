@@ -9,5 +9,5 @@ export const formatNumber = (num) => {
     return formatted.replace(/\.0$/, '') + 'K';
   }
 
-  return num.toString();
+  return num;
 };
