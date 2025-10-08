@@ -3,7 +3,7 @@ import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
 const Root = () => {
   return (
-    <div>
+    <div className = "bg-[#f5f5f5]">
       <Navbar />
       <Outlet />
       <Footer />

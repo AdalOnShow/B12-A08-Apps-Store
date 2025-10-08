@@ -3,8 +3,8 @@ import useAppData from "../hooks/useAppData";
 import downloadIcon from "../src/assets/icon-downloads.png";
 import ratingsIcon from "../src/assets/icon-ratings.png";
 import reviewIcon from "../src/assets/icon-review.png"
-import { formatNumber } from "../utility/utils";
-import AppsNotFound from "../pages/errors/AppsNotFound";
+import { formatNumber, getInstallDB, setInstallDB } from "../utility/utils";
+import AppsNotFound from "./errors/AppsNotFound";
 import {
   BarChart,
   Bar,
@@ -14,15 +14,22 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
+import { useState } from "react";
 
 const AppDetails = () => {
   const id = parseInt(useParams().id);
-
   const [appData] = useAppData();
-  const app = appData.find(app => app.id === id) || {};
 
+  const app = appData.find(app => app.id === id) || {};
   const { image, title, companyName, description, size, reviews, ratingAvg, downloads, ratings } = app;
 
+  const prevsData = getInstallDB()
+  const [install, setInstall] = useState(() => prevsData.includes(id) ? true : false)
+
+  const handleInstall = (id) => {
+    setInstall(true)
+    setInstallDB(id)
+  }
 
 
   return (
@@ -59,7 +66,7 @@ const AppDetails = () => {
                 </div>
               </div>
 
-              <button className="mt-6 bg-[#00d390] text-white font-semibold text-xl px-5 py-3.5 rounded-md cursor-pointer">Install Now ({size} MB)</button>
+              <button onClick={() => handleInstall(id)} disabled={install} className="mt-6 bg-[#00d390] text-white font-semibold text-xl px-5 py-3.5 rounded-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">{install ? "Uninstall" : `Install Now (${size} MB)`}</button>
             </div>
           </div>
 
@@ -95,7 +102,7 @@ const AppDetails = () => {
               />
             </BarChart>
           </ResponsiveContainer>
-          
+
           <div className="w-full border-t border-[#c4c9ce] my-10" />
           <h4 className="font-semibold text-2xl text-col-pry mb-5">Description</h4>
           <div className="space-y-4">

@@ -4,7 +4,7 @@ import NotFound from "../pages/errors/NotFound";
 import Apps from "../pages/Apps";
 import Installation from "../pages/Installation";
 import Home from "../pages/home/home";
-import AppDetails from "../components/AppDetails";
+import AppDetails from "../pages/AppDetails";
 import AppsNotFound from "../pages/errors/AppsNotFound";
 
 

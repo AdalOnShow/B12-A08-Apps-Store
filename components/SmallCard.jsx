@@ -16,11 +16,11 @@ const SmallCard = ({ appData }) => {
         <h4 className="text-col-pry font-medium text-xl my-4">{title}</h4>
         <div className="flex items-center justify-between">
           <div className="flex-center gap-2 px-2.5 py-1.5 rounded-md bg-[#f1f5e8] text-[#00D390] font-medium">
-            <BsDownload size={14} />
+            <BsDownload size={16} />
             {formatNumber(downloads)}
           </div>
           <div className="flex-center gap-2 px-2.5 py-1.5 rounded-md bg-[#FFF0E1] text-[#FF8811] font-medium">
-            <FaStar size={14} />
+            <FaStar size={16} />
             {ratingAvg}
           </div>
         </div>

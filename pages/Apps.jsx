@@ -2,6 +2,7 @@ import { useState } from "react"
 import SmallCard from "../components/SmallCard"
 import useAppData from "../hooks/useAppData"
 import { CiSearch } from "react-icons/ci"
+import AppsNotFound from "./errors/AppsNotFound"
 
 const Apps = () => {
   const [appData] = useAppData()
@@ -10,9 +11,8 @@ const Apps = () => {
   const trimmedSearch = search.trim().toLowerCase()
 
   const filteredApps = trimmedSearch ? appData.filter(app =>
-    app.title.toLowerCase().includes(trimmedSearch)) : appData
+    app.title.toLowerCase().includes(trimmedSearch)) : appData;
 
-  console.log(filteredApps)
 
   return (
     <div className="max-w-11/12 mx-auto py-20">
@@ -28,6 +28,7 @@ const Apps = () => {
         </label>
       </div>
 
+      {filteredApps.length === 0 && (<AppsNotFound setSearch={setSearch} />)}
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredApps.map(appData => (
           <SmallCard key={appData.id} appData={appData} />
