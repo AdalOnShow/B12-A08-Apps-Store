@@ -3,9 +3,9 @@ import Root from "./../pages/Root";
 import NotFound from "../pages/errors/NotFound";
 import Apps from "../pages/Apps";
 import Installation from "../pages/Installation";
-import Home from "../pages/home/home";
 import AppDetails from "../pages/AppDetails";
 import AppsNotFound from "../pages/errors/AppsNotFound";
+import Home from "../pages/home/home";
 
 
 export const router = createBrowserRouter([
