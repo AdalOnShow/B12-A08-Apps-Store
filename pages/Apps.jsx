@@ -1,17 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SmallCard from "../components/SmallCard"
 import useAppData from "../hooks/useAppData"
 import { CiSearch } from "react-icons/ci"
 import AppsNotFound from "./errors/AppsNotFound"
+import Loading from "../components/Loading"
 
 const Apps = () => {
-  const [appData] = useAppData()
+  const [appData, loading] = useAppData()
   const [search, setSearch] = useState('')
 
   const trimmedSearch = search.trim().toLowerCase()
 
   const filteredApps = trimmedSearch ? appData.filter(app =>
     app.title.toLowerCase().includes(trimmedSearch)) : appData;
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
 
   return (
@@ -28,11 +34,17 @@ const Apps = () => {
         </label>
       </div>
 
-      {filteredApps.length === 0 && (<AppsNotFound setSearch={setSearch} />)}
-      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {filteredApps.map(appData => (
-          <SmallCard key={appData.id} appData={appData} />
-        ))}
+      <div className="relative w-full min-h-dvh">
+        {loading && (
+          <Loading full />
+        )}
+
+        {filteredApps.length === 0 && (<AppsNotFound setSearch={setSearch} />)}
+        <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {filteredApps.map(appData => (
+            <SmallCard key={appData.id} appData={appData} />
+          ))}
+        </div>
       </div>
     </div>
   )

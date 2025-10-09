@@ -1,11 +1,12 @@
 import { Link } from "react-router"
 import SmallCard from "../../components/SmallCard"
 import useAppData from "../../hooks/useAppData"
+import Loading from "../../components/Loading"
 
 const TrendingApp = () => {
-  const [appData] = useAppData()
+  const [appData, loading] = useAppData()
 
-  const eighthData = appData.slice(0, 8)
+  const eighthData = appData.slice(2, 10)
 
 
   return (
@@ -13,6 +14,10 @@ const TrendingApp = () => {
       <h2 className="text-col-pry text-5xl font-bold text-center">Trending Apps</h2>
       <p className="text-[#627382] mt-4 text-xl text-center">Explore All Trending Apps on the Market developed by us</p>
 
+      <div className="relative">
+        {loading && (<Loading />)}
+      </div>
+      
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {eighthData.map(appData => (
           <SmallCard key={appData.id} appData={appData} />

@@ -4,7 +4,6 @@ import downloadIcon from "../src/assets/icon-downloads.png";
 import ratingsIcon from "../src/assets/icon-ratings.png";
 import reviewIcon from "../src/assets/icon-review.png"
 import { formatNumber, getInstallDB, setInstallDB } from "../utility/utils";
-import AppsNotFound from "./errors/AppsNotFound";
 import {
   BarChart,
   Bar,
@@ -15,6 +14,9 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { useState } from "react";
+import Swal from "sweetalert2";
+import { useEffect } from "react";
+import Loading from "../components/Loading";
 
 const AppDetails = () => {
   const id = parseInt(useParams().id);
@@ -26,15 +28,30 @@ const AppDetails = () => {
   const prevsData = getInstallDB()
   const [install, setInstall] = useState(() => prevsData.includes(id) ? true : false)
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+
   const handleInstall = (id) => {
-    setInstall(true)
-    setInstallDB(id)
+    Swal.fire({
+      title: "Do you want to install this app?",
+      showCancelButton: true,
+      confirmButtonText: "Install",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("App install successful!", "", "success");
+        setInstall(true)
+        setInstallDB(id)
+      }
+    });
   }
 
 
   return (
 
-    !app.id ? (<AppsNotFound />) :
+    !app.id ? (<Loading full={true} />) :
 
       <div className="bg-[#f5f5f5] py-10">
         <div className="max-w-11/12 mx-auto">

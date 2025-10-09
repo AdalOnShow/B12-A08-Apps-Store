@@ -3,18 +3,29 @@ import useAppData from "../hooks/useAppData"
 import { delInstallDB, formatNumber, getInstallDB } from "../utility/utils";
 import { FaStar } from "react-icons/fa6";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import Loading from './../components/Loading';
 
 const Installation = () => {
 
-  const [appsData] = useAppData();
+  const [appsData, loading] = useAppData();
   const [installedApps, setInstalledApps] = useState(() => getInstallDB())
   const [sortOrder, setSortOrder] = useState('none')
 
   const installedAppData = appsData.filter(app => installedApps.includes(app.id))
 
   const handleUninstall = (id) => {
-    delInstallDB(id)
-    setInstalledApps(getInstallDB())
+    Swal.fire({
+      title: "Do you want to uninstall this app?",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Uninstall",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("App uninstall successful!", "", "success");
+        delInstallDB(id)
+        setInstalledApps(getInstallDB())
+      }
+    });
   }
 
   const sortedApps = (() => {
@@ -43,7 +54,8 @@ const Installation = () => {
           </select>
         </label>
       </div>
-      <div className="w-full flex flex-col gap-4 mt-4">
+      <div className="relative w-full flex flex-col gap-4 mt-4">
+        {loading && <Loading full />}
         {sortedApps.map(({ id, image, title, size, ratingAvg, downloads }, i) => (
           <div key={i} className="flex justify-between items-center bg-white w-full rounded-md gap-4 p-4">
             <div className="flex-center gap-4">
