@@ -21,7 +21,7 @@ const Apps = () => {
 
 
   return (
-    <div className="max-w-11/12 mx-auto py-20">
+    <div className="max-w-11/12 mx-auto py-10 md:py-20">
       <h2 className="text-col-pry text-5xl font-bold text-center">Our All Applications</h2>
       <p className="text-[#627382] mt-4 text-xl text-center">Explore All Apps on the Market developed by us. We code for Millions</p>
 
@@ -40,7 +40,7 @@ const Apps = () => {
         )}
 
         {filteredApps.length === 0 && (<AppsNotFound setSearch={setSearch} />)}
-        <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="my-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {filteredApps.map(appData => (
             <SmallCard key={appData.id} appData={appData} />
           ))}

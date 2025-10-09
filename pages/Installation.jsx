@@ -57,7 +57,7 @@ const Installation = () => {
       <div className="relative w-full flex flex-col gap-4 mt-4">
         {loading && <Loading full />}
         {sortedApps.map(({ id, image, title, size, ratingAvg, downloads }, i) => (
-          <div key={i} className="flex justify-between items-center bg-white w-full rounded-md gap-4 p-4">
+          <div key={i} className="flex flex-col md:flex-row justify-between items-center bg-white w-full rounded-md gap-4 p-4">
             <div className="flex-center gap-4">
               <img src={image} alt={title} className="size-20 rounded-md" />
               <div className="flex flex-col gap-4 items-start">
@@ -75,7 +75,7 @@ const Installation = () => {
                 </div>
               </div>
             </div>
-            <button onClick={() => handleUninstall(id)} className="bg-[#00d390] text-white font-semibold text-xl px-5 py-3.5 rounded-md cursor-pointer pl-4">Uninstall</button>
+            <button onClick={() => handleUninstall(id)} className="bg-[#00d390] text-white font-semibold text-xl px-5 py-3.5 rounded-md cursor-pointer pl-4 w-full md:w-40">Uninstall</button>
           </div>
         ))}
       </div>

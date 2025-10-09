@@ -65,21 +65,21 @@ const AppDetails = () => {
 
               <div className="w-full border-t border-[#c4c9ce] my-8" />
 
-              <div className="flex items-center gap-20">
+              <div className="flex items-center gap-5 md:gap-20">
                 <div className="space-y-2">
                   <img src={downloadIcon} alt={title} />
                   <p className="text-col-pry">Downloads</p>
-                  <h4 className="text-col-pry font-extrabold text-[40px]/10">{formatNumber(downloads)}</h4>
+                  <h4 className="text-col-pry font-extrabold text-2xl md:text-[40px]/10">{formatNumber(downloads)}</h4>
                 </div>
                 <div className="space-y-2">
                   <img src={ratingsIcon} alt={title} />
                   <p className="text-col-pry">Average Ratings</p>
-                  <h4 className="text-col-pry font-extrabold text-[40px]/10">{ratingAvg}</h4>
+                  <h4 className="text-col-pry font-extrabold text-2xl md:text-[40px]/10">{ratingAvg}</h4>
                 </div>
                 <div className="space-y-2">
                   <img src={reviewIcon} alt={title} />
                   <p className="text-col-pry">Total Reviews</p>
-                  <h4 className="text-col-pry font-extrabold text-[40px]/10">{formatNumber(reviews)}</h4>
+                  <h4 className="text-col-pry font-extrabold text-2xl md:text-[40px]/10">{formatNumber(reviews)}</h4>
                 </div>
               </div>
 
