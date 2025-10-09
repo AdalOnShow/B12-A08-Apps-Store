@@ -19,20 +19,20 @@ export const router = createBrowserRouter([
         Component: Home
       },
       {
-        path: "app-details/:id",
+        path: "/app-details/:id",
         Component: AppDetails,
         errorElement: AppsNotFound
       },
       {
-        path: "apps",
+        path: "/apps",
         Component: Apps
       },
       {
-        path: "app-details",
+        path: "/app-details",
         Component: Apps
       },
       {
-        path: "installation",
+        path: "/installation",
         Component: Installation
       }
     ]
