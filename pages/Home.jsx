@@ -1,6 +1,6 @@
-import Feature from "./Feature"
-import Hero from "./Hero"
-import TreandingApp from "./TrendingApp"
+import Feature from "../components/Feature"
+import Hero from "../components/Hero"
+import TreandingApp from "../components/TrendingApp"
 
 const Home = () => {
   return (

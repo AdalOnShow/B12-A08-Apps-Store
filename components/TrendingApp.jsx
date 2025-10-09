@@ -1,7 +1,7 @@
 import { Link } from "react-router"
-import SmallCard from "../../components/SmallCard"
-import useAppData from "../../hooks/useAppData"
-import Loading from "../../components/Loading"
+import SmallCard from "./SmallCard"
+import useAppData from "../hooks/useAppData"
+import Loading from "./Loading"
 
 const TrendingApp = () => {
   const [appData, loading] = useAppData()
@@ -17,7 +17,7 @@ const TrendingApp = () => {
       <div className="relative">
         {loading && (<Loading />)}
       </div>
-      
+
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {eighthData.map(appData => (
           <SmallCard key={appData.id} appData={appData} />

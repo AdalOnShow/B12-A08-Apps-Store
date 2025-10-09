@@ -1,6 +1,6 @@
-import apple from "../../src/assets/apple-app.png";
-import google from "../../src/assets/google-play.png";
-import hero from "../../src/assets/hero.png";
+import apple from "../src/assets/apple-app.png";
+import google from "../src/assets/google-play.png";
+import hero from "../src/assets/hero.png";
 
 const Hero = () => {
   return (

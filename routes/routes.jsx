@@ -5,7 +5,7 @@ import Apps from "../pages/Apps";
 import Installation from "../pages/Installation";
 import AppDetails from "../pages/AppDetails";
 import AppsNotFound from "../pages/errors/AppsNotFound";
-import Home from "../pages/home/home";
+import Home from "../pages/Home";
 
 
 export const router = createBrowserRouter([
